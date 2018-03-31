@@ -1,0 +1,110 @@
+[
+    {
+        "id": "5a7d2809.18cf98",
+        "type": "rpi-gpio in",
+        "z": "75c1dc5f.c70584",
+        "name": "Read button",
+        "pin": "5",
+        "intype": "tri",
+        "debounce": "25",
+        "read": true,
+        "x": 118.16670227050781,
+        "y": 162.00000953674316,
+        "wires": [
+            [
+                "fdf6e014.9472f"
+            ]
+        ]
+    },
+    {
+        "id": "3579f958.81ab16",
+        "type": "debug",
+        "z": "75c1dc5f.c70584",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 637.1668663024902,
+        "y": 162.66670036315918,
+        "wires": []
+    },
+    {
+        "id": "b7041d0e.f66b2",
+        "type": "counter",
+        "z": "75c1dc5f.c70584",
+        "name": "presses",
+        "init": "0",
+        "step": "1",
+        "lower": "",
+        "upper": "",
+        "mode": "increment",
+        "outputs": 2,
+        "x": 446.5000648498535,
+        "y": 112.00002861022949,
+        "wires": [
+            [
+                "3579f958.81ab16",
+                "d15f62fd.de128",
+                "1368e82c.84bee8"
+            ],
+            []
+        ],
+        "inputLabels": [
+            "0"
+        ]
+    },
+    {
+        "id": "fdf6e014.9472f",
+        "type": "switch",
+        "z": "75c1dc5f.c70584",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 286.1667022705078,
+        "y": 157.333345413208,
+        "wires": [
+            [
+                "b7041d0e.f66b2"
+            ]
+        ]
+    },
+    {
+        "id": "1368e82c.84bee8",
+        "type": "file",
+        "z": "75c1dc5f.c70584",
+        "name": "",
+        "filename": "/logging/log",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "false",
+        "x": 639.1666870117188,
+        "y": 258,
+        "wires": []
+    },
+    {
+        "id": "46fafce2.1444a4",
+        "type": "rpi-gpio out",
+        "z": "75c1dc5f.c70584",
+        "name": "",
+        "pin": "35",
+        "set": true,
+        "level": "1",
+        "freq": "",
+        "out": "out",
+        "x": 411.16668701171875,
+        "y": 310,
+        "wires": []
+    }
+]
